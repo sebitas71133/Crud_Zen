@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/table.css" />
+    <link rel="stylesheet" href="styles/form.css" />
+    <link rel="stylesheet" href="styles/card.css" />
+
+    <script src="helpers/FileReader.js"></script>
+    <title>CRUD App</title>
+  </head>
+  <body>
+    <header>
+      <!-- LIMPIAR TODO -->
+      <button id="btnLimpiar">
+        <p>Delete All</p>
+      </button>
+    </header>
+    <main>
+      <!-- TARJETA ZOOM -->
+
+      <section id="containerCard">
+        <article>
+          <img
+            id="imageClose"
+            class="imageClose"
+            src="assets/images/cerrar.png"
+            alt="cerrar.png"
+          />
+          <div class="image">
+            <img
+              id="imagenZoom"
+              src="assets/images/duolingo.png"
+              alt="imagen.jpg"
+            />
+          </div>
+          <div class="content">
+            <div class="tipo">
+              <div id="categoriaZoom">Deportes</div>
+            </div>
+            <div class="nombre">
+              <div id="nombreZoom">Mua thai</div>
+            </div>
+            <textarea
+              id="descripcionZoom"
+              class="descripcion"
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              disabled
+            ></textarea>
+            <!-- <div >Queen of Pain ataca sin previo aviso, acabando con los enemigos juntos con gritos ensordecedores. Si un enemigo sobrevive su arremetida, Queen of Pain ralentiza su huida con un lanzamiento de su daga antes de acabar con él.</div> -->
+          </div>
+        </article>
+      </section>
+
+      <!--FORMULARIO AGREGAR UN ELEMENTO -->
+
+      <div class="container-formulario">
+        <form id="formulario">
+          <div class="title">Formulario</div>
+          <div class="input-box">
+            <label for="nombre"
+              ><p>Nombre:</p>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                value=""
+                placeholder="Ingrese un nombre"
+                required
+              />
+            </label>
+          </div>
+          <div class="input-box">
+            <select name="categoria" id="categoria" required>
+              <option value="" disabled selected>Categoria</option>
+              <option value="Technology">Technology</option>
+              <option value="Entertaiment">Entertaiment</option>
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Art">Art</option>
+              <option value="Sport">Sport</option>
+              <option value="Architecture">Architecture</option>
+              <option value="Fashion">Fashion</option>
+              <option value="Culture">Culture</option>
+              <option value="Random">Random</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <input type="file" name="imagen" id="inputImagen" />
+            <div class="imagen">
+              <img src="" id="imagenFormulario" alt="" />
+            </div>
+          </div>
+
+          <div class="input-box">
+            <label for="descripcion"
+              ><p>Comentario:</p>
+              <textarea
+                id="descripcion"
+                name="descripcion"
+                rows="4"
+                cols="50"
+                required
+              ></textarea>
+            </label>
+          </div>
+          <div class="container-botones">
+            <button type="submit" id="btnTransaccion">Guardar</button>
+            <button type="button" id="btnSalir">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <!--FORMULARIO EDITAR UN ELEMENTO -->
+
+      <div class="container-formulario-editar">
+        <form id="formularioEditar">
+          <div class="title">Editar</div>
+          <div class="input-box">
+            <label for="identificador"
+              ><p>ID:</p>
+              <input
+                type="text"
+                id="identificador"
+                name="identificador"
+                value=""
+                disabled
+              />
+            </label>
+          </div>
+          <div class="input-box">
+            <label for="nombre"
+              ><p>Nombre:</p>
+              <input
+                type="text"
+                id="nombreEditar"
+                name="nombre"
+                value=""
+                placeholder="Ingrese un nombre"
+                required
+              />
+            </label>
+          </div>
+          <div class="input-box">
+            <select name="categoria" id="categoriaEditar" required>
+              <option value="" disabled selected>Categoria</option>
+              <option value="Technology">Technology</option>
+              <option value="Entertaiment">Entertaiment</option>
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Art">Art</option>
+              <option value="Sport">Sport</option>
+              <option value="Architecture">Architecture</option>
+              <option value="Fashion">Fashion</option>
+              <option value="Culture">Culture</option>
+              <option value="Random">Random</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <input type="file" name="imagen" id="inputImagenEditar" />
+            <div class="imagen">
+              <img src="" id="imagenFormularioEditar" alt="" />
+            </div>
+          </div>
+
+          <div class="input-box">
+            <label for="descripcion"
+              ><p>Comentario:</p>
+              <textarea
+                id="descripcionEditar"
+                name="descripcion"
+                rows="4"
+                cols="50"
+                required
+              ></textarea>
+            </label>
+          </div>
+          <div class="container-botones">
+            <button type="submit" id="btnTransaccionEditar">Guardar</button>
+            <button type="button" id="btnSalirEditar">Cancelar</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- TABLA CON ELEMENTOS   -->
+
+      <div class="opciones">
+        <!-- OPCIONESSS -->
+
+        <div class="input-box filtro">
+          <select name="categoria" id="filtroCategoria" required>
+            <option value="all" disabled selected>Categoria</option>
+            <option value="all">All</option>
+            <option value="Technology">Technology</option>
+            <option value="Entertaiment">Entertaiment</option>
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Art">Art</option>
+            <option value="Sport">Sport</option>
+            <option value="Architecture">Architecture</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Culture">Culture</option>
+            <option value="Random">Random</option>
+          </select>
+        </div>
+
+        <!-- BUSQUEDA -->
+
+        <div class="caja-busqueda">
+          <input type="text" id="busqueda" placeholder="search..." />
+
+        </div>
+
+        <img src="assets/images/agregar2.png" alt="" class="icon-add" />
+      </div>
+
+      <!-- TABLAAA -->
+      <div class="container-tabla">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Categoria</th>
+              <th>Imagen</th>
+              <th>View</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr>
+              <td>Delfin</td>
+              <td>Animales</td>
+              <td>
+                <img
+                  class="litle-image"
+                  src="assets/images/duolingo.png"
+                  alt="profile.png"
+                />
+              </td>
+              <td>
+                <img class="icon" src="assets/images/eye535193.png" alt="" />
+              </td>
+              <td>
+                <img class="icon" src="assets/images/edit.png" alt="" />
+              </td>
+              <td>
+                <img class="icon" src="assets/images/delete484611.png" alt="" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        
+      </div>
+    </main>
+    <footer></footer>
+    
+    <script src="scripts/data-layer/data.js"></script>
+    <script src="scripts/data-layer/ArticleModel.js"></script>
+    <script src="scripts/data-layer/ArticleRepository.js"></script>
+    <script src="scripts/service-layer/ArticleService.js"></script>
+    <script src="scripts/bussines-layer/ArticleController.js"></script>
+    <script src="scripts/ui-layer/ArticleInterface.js"></script>
+  </body>
+</html>
