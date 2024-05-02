@@ -26,7 +26,7 @@ class ItemRepository {
   }
 
   getItemsByFilter(filtro) {
-    return this._data.filter( (item) => item._nombre.includes(filtro))
+    return this._data.filter( (item) => (item._nombre.toLowerCase()).includes(filtro))
   }
 
   getItemById(id) {
