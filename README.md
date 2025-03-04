@@ -25,7 +25,7 @@ Este es uno de mis primeros proyectos cuando aprendí JavaScript, CSS y HTML. Es
 
 ### 1️⃣ Clonar el repositorio
 
-git clone https://github.com/tuusuario/tu-repo.git
+git clone https://github.com/sebitas71133/Crud_Zen.git
 cd tu-repositorio
 
 ### 2️⃣ Abre el archivo index.html en tu navegador.
