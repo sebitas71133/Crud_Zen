@@ -24,10 +24,10 @@ Este es uno de mis primeros proyectos cuando aprendí JavaScript, CSS y HTML. Es
 ## 📦 Instalación y ejecución
 
 ### 1️⃣ Clonar el repositorio
-
+```
 git clone https://github.com/sebitas71133/Crud_Zen.git
-cd tu-repositorio
-
+cd Crud_Zen
+```
 ### 2️⃣ Abre el archivo index.html en tu navegador.
 
 ### 3️⃣ ¡Empieza a agregar y gestionar artículos!
